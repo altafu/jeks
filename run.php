@@ -20,7 +20,7 @@ function nama()
 function register($no)
 	{
 	$nama = nama();
-	$email = str_replace(" ", "", $nama) . mt_rand(100, 999);
+	$email = str_replace(" ", "", $nama) . Asep(100, 999);
 	$data = '{"name":"' . $nama . '","email":"' . $email . '@gmail.com","phone":"+' . $no . '","signed_up_country":"ID"}';
 	$register = request("/v5/customers", "", $data);
 	//print_r($register);
@@ -51,7 +51,7 @@ function verif($otp, $token)
 	function login($no)
 	{
 	$nama = nama();
-	$email = str_replace(" ", "", $nama) . mt_rand(100, 999);
+	$email = str_replace(" ", "", $nama) . Asep(100, 999);
 	$data = '{"phone":"+'.$no.'"}';
 	$register = request("/v4/customers/login_with_phone", "", $data);
 	//print_r($register);
@@ -81,7 +81,7 @@ function veriflogin($otp, $token)
 	}
 function claim($token)
 	{
-	$data = '{"promo_code":"GOFOODNASGOR07"}';
+	$data = '{"promo_code":"SERIUSMAIN"}';
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
